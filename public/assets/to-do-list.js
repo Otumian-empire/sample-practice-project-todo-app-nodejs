@@ -1,35 +1,39 @@
 // code from netninja
-$(document).ready(function () {
+$(document).ready(function() {
 
-  $('form').on('submit', function () {
+  $('form').on('submit', function() {
 
-    var item = $('form input');
-    var todo = { item: item.val() };
+      var item = $('form input');
+      var todo = { item: item.val() };
 
-    $.ajax({
-      type: 'POST',
-      url: '/todo',
-      data: todo,
-      success: function (data) {
-        //do something with the data via front-end framework
-        location.reload();
-      }
-    });
+      $.ajax({
+          type: 'POST',
+          url: '/',
+          data: todo,
+          success: function(data) {
+              //do something with the data via front-end framework
+              $('form input').val('')
+              location.reload();
+          }
+      });
 
-    return false;
+      return false;
 
   });
 
-  $('li').on('click', function () {
-    var item = $(this).text().replace(/ /g, "-");
+  $('li').on('click', function() {
+    var item_id = $(this).attr('id')
+
     $.ajax({
       type: 'DELETE',
-      url: '/todo/' + item,
-      success: function (data) {
+      url: '/',
+      data: { id: item_id },
+      success: function(data) {
         //do something with the data via front-end framework
         location.reload();
       }
-    });
+  });
+
   });
 
 });

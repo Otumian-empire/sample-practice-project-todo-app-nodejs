@@ -1,16 +1,18 @@
+require('dotenv').config()
 const express = require('express')
-const todoController = require('./controllers/todocontroller')
+const { router } = require('./controllers/todocontroller')
 
 const app = express()
+const port = process.env.port || 3000
 
-// set up template engine
 app.set('view engine', 'ejs')
 
-// static file for all routes
 app.use(express.static('./public'))
+app.use(express.urlencoded({ extended: false }))
 
-// fire controllers
-todoController(app)
+app.use('/', router)
 
-
-app.listen(3000)
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`)
+    console.log(`Open localhost:${port}/ in the browser`)
+})

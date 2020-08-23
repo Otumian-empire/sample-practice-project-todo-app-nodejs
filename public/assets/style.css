@@ -65,7 +65,8 @@ li:hover {
 }
 
 h1 {
-    background: url(/assets/logo.jpeg) no-repeat center;
+    /* image from image source below - not mine */
+    background: url('https://cdn.pixabay.com/photo/2017/08/02/22/25/cat-2573708__340.png') no-repeat center;
     margin-bottom: 0;
     text-indent: -10000px;
 }

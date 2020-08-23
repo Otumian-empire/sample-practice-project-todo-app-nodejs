@@ -1,3 +1,4 @@
 public/assets/logo.jpeg
 node_modules
-package-lock.json
+.env
+

@@ -16,7 +16,7 @@
 
         <ul>
             <% todos.forEach(function (todo) {%>
-            <li><%= todo.item %></li>
+            <li id="<%= todo.id %>"><%= todo.item %></li>
             <% }) %>
         </ul>
     </div>
